@@ -2,64 +2,57 @@ import java.sql.SQLOutput;
 import java.util.Scanner;
 /****
  ***** Created by Everyone on 28 11
- ***** UPDATE PROGRAM DESCRIPTION HERE
+ *****
  *****/
 public class ChronicDiseases
 {
-   //OBSEITY
    //variables
-   private String gender;
-   private double height, weight;
-   private int age;
-   int[] choices = {1,2,3,4,5,6};
+    String name;
+    int age;
+   int weight;
+   int height;
+   String gender;
+   protected boolean smoker;
+   protected boolean drinker;
+
    String[] inputs = new String[5];
 
-   public ChronicDiseases(String gender, double height, double weight, int age)
-   {
-      this.gender = gender;
-      this.height = height;
-      this.weight = weight;
-      this.age = age;
+   public ChronicDiseases () {
+
    }//constructor
-   public String getGender()
+
+   public ChronicDiseases(String name)
    {
-      return gender;
+      this.name = name;
+
+   }//constructor
+
+   public ChronicDiseases(int age, int weight, int height, String gender)
+   {
+      this.age = age;
+      this.weight = weight;
+      this.height = height;
+      this.gender = gender;
+
    }
 
-   public void setGender(String gender)
+   public ChronicDiseases(Boolean smoker, int age, String gender)
    {
+      this.smoker = smoker;
+      this.age = age;
       this.gender = gender;
    }
 
-   public double getHeight()
+   public String getName()
    {
-      return height;
+      return name;
    }
 
-   public void setHeight(double height)
+   public void setName(String name)
    {
-      this.height = height;
+      this.name = name;
    }
 
-   public double getWeight()
-   {
-      return weight;
-   }
-
-   public void setWeight(double weight)
-   {
-      this.weight = weight;
-   }
-
-   public int getAge()
-   {
-      return age;
-   }
-
-   public void setAge(int age)
-   {
-      this.age = age;
-   }
 
 //   public void exerciseLevel() {
 //      System.out.println("How often do you exercise?");
@@ -146,53 +139,4 @@ public class ChronicDiseases
 //         System.out.println("Invalid choice. Please try again.");
 //   }//menuchoice
 
-   public void loseWeight()
-   {
-      System.out.println("DO");
-      System.out.println("Look at the labels and select food with orange and green labels, they are healthier");
-      System.out.println("Drink less sugary drinks and alcohol, thee are high in calories");
-      System.out.println("Try becoming more aware of what you are eating by starting a food diary");
-      System.out.println();
-      System.out.println("REMEMBER - Be kind to yourself we all have good days and bad ");
-   }//loseweight
-
-
-      public void eatHealthier() {
-         loseWeight();
-         System.out.println("Try to eat 5 fruit and vegetables everyday");
-         System.out.println(" Eat extra fibre with wholegrain foods, brown rice, wholewheat pasta, skin-on potatoes");
-         System.out.println("Low salt or reduced salt sauces and foods");
-      }//eathealthy
-
-      public void getActive() {
-         System.out.println("DO");
-         System.out.println("Aim for 150 minute sof exercise per week, which is roughly 20 - 30 minutes a day ");
-         System.out.println("Plan ahead, decide the days you want to exercise and stick to it");
-         System.out.println("Do an activity you enjoy, exercise classes, boxing, yoga or maybe dance classes");
-      }//getactive
-
-   public void sleepBetter()
-   {
-      System.out.println("DO");
-      System.out.println();
-      System.out.println("Stick to a sleep schedule, go to bed at the same time each day including weekends");
-      System.out.println("Write down any worries or thoughts before bed");
-      System.out.println("Implementing exercise during the day will help ");
-      System.out.println();
-      System.out.println("DON'T");
-      System.out.println();
-      System.out.println("Do not use digital screens 1 hour before bed ");
-      System.out.println("Do not drink caffeinated drinks 1 hour before bed");
-      System.out.println("Do not eat large meals before bed");
-   }//sleepbetter
-
-   public void drinkLessAlcohol()
-   {
-      System.out.println("DO");
-      System.out.println();
-      System.out.println("Opt for drinks lower in alchol like a light or alchol free beer or wine.");
-      System.out.println("Try to make soical plans not inclduing alchol - like a cafe or a walk ");
-      System.out.println("Let friend or family member know you are trying to drink less so they can support you");
-      System.out.println("Limit how much money you want spend on alcohol and stick to it");
-   }//drinkless
 }//class

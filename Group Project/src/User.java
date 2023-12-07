@@ -1,30 +1,32 @@
 import javax.xml.namespace.QName;
+import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.Objects;
 import java.util.Scanner;
 
-
 /****
- ***** Created by Jayne  on 26 11
- ***** UPDATE PROGRAM DESCRIPTION HERE
+ ***** Created by Jayne  on 26 11 2023
+ *****
  *****/
 public class User
 {
    //instance variables
    private String name;
    private int age;
-   private double weight;
-   private double height;
-   private boolean smoker, drinker;
+    double weight;
+    double height;
+    boolean smoker, drinker;
    private String gender;
    private ArrayList<String> healthRisks = new ArrayList<String>();
-
- //  private ArrayList<ChronicDiseases> chronicDiseases = new ArrayList< ChronicDiseases>();
-   public User () {
+   private HeartDisease heartDisease = new HeartDisease();
+   private Obesity obesity = new Obesity();
+   private Cancer cancer = new Cancer();
+   public User () throws FileNotFoundException
+   {
 
    }//default constructor
 
-   public User(String name, int age, double weight, double height, boolean smoker, boolean drinker, String gender)
+   public User(String name, int age, double weight, double height, boolean smoker, boolean drinker, String gender) throws FileNotFoundException
    {
       this.name = name;
       this.age = age;
@@ -34,11 +36,38 @@ public class User
       this.drinker = drinker;
       this.gender = gender;
    }//alt constructor
+   public HeartDisease getHeartDisease()
+   {
+      return heartDisease;
+   }
 
+   public void setHeartDisease(HeartDisease heartDisease)
+   {
+      this.heartDisease = heartDisease;
+   }
+
+   public Obesity getObesity()
+   {
+      return obesity;
+   }
+
+   public void setObesity(Obesity obesity)
+   {
+      this.obesity = obesity;
+   }
    public String getName()
 {
    return name;
 }
+   public Cancer getCancer()
+   {
+      return cancer;
+   }
+
+   public void setCancer(Cancer cancer)
+   {
+      this.cancer = cancer;
+   }
 
    public void setName(String name)
    {
@@ -173,15 +202,27 @@ public class User
    public void riskAssessment() {
       if (calculateBMI() > 30) {
          healthRisks.add("Obesity");
+         Obesity obesity = new Obesity();
       }
       if (calculateBMI() > 30 && smoker && drinker) {
          healthRisks.add("Cancer");
+         Cancer cancer = new Cancer();
+      }
+      if (smoker && gender =="female" || gender == "male") {
+         healthRisks.add("Cancer");
+         Cancer cancer = new Cancer();
       }
       if (calculateBMI() > 30 && smoker && drinker && gender == "female") {
          healthRisks.add("Osteoporosis");
+         Osteoporosis osteoporosis = new Osteoporosis();
+      }
+      if (calculateBMI() < 18.5 && smoker && drinker && gender == "female") {
+         healthRisks.add("Osteoporosis");
+         Osteoporosis osteoporosis = new Osteoporosis();
       }
       if (calculateBMI() > 30 && smoker && drinker && age >= 45) {
          healthRisks.add("Heart Disease");
+         HeartDisease heartDisease = new HeartDisease();
       }
        else if (calculateBMI() < 25 && age < 30) {
          System.out.println(" You are currently a low risk of a chronic disease. Congratulations!");

@@ -1,4 +1,6 @@
 
+import java.io.FileNotFoundException;
+import java.io.PrintWriter;
 import java.sql.SQLOutput;
 import java.text.DecimalFormat;
 import java.util.Scanner;
@@ -10,8 +12,11 @@ public class Main
 {
 
 
-   public static void main(String[] args)
+   public static void main(String[] args) throws FileNotFoundException
    {
+      Obesity ob = new Obesity();
+      ob.printToFile();
+      
       Scanner keyboard = new Scanner(System.in);
       DecimalFormat df = new DecimalFormat("00.00");
 
@@ -58,7 +63,33 @@ public class Main
 
            String ChronicDisease = user1.getHealthRisks().get(userInput - 1);
 
-           System.out.println(ChronicDisease);
+            switch (ChronicDisease) {
+               case "Heart Disease":
+                  HeartDisease heartDisease = new HeartDisease("Heart Disease ");
+                  heartDisease.heartDiseaseQuestions();
+                  user1.setHeartDisease(heartDisease);
+                  break;
+               case "Obesity":
+                  Obesity obesity = new Obesity();
+                  obesity.determineRiskCategory();
+                  user1.setObesity(obesity);
+                  String riskCategory = user1.getObesity().getRiskCategory();
+                  System.out.println(riskCategory);
+                  break;
+//                  user1.PrintWriter("obesityAdvice.txt");
+
+               case "Cancer":
+                  Cancer cancer = new Cancer();
+                  cancer.amIAtRisk();
+                  user1.setCancer(cancer);
+                  break;
+               case "Osteoporosis":
+                  Osteoporosis osteoporosis = new Osteoporosis();
+                  osteoporosis.information();
+
+            }
+//           System.out.println(user1.getHeartDisease().getHdlCholesterol());
+
 
            System.out.println("Enter 9 to view your Chronic Diseases or 0 to exit");
            menuReturn = keyboard.nextInt();

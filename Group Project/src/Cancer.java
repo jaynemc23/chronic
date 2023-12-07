@@ -1,18 +1,133 @@
-//package GroupProject;
-//import java.util.Scanner;
-///*******************************************************
-// Program Name: Cancer
-// Created by: Pearse Molloy
-// Created on: 22/11/2023
-// Description: Section on cancer for PSD2 group assignment
-// *******************************************************/
-//public class Cancer
-//{
-//   public static Scanner keyboard = new Scanner(System.in);
-//   public static int menuChoice;
-//   public static char familyHistoryChoice, radExposureChoice;
-//
-//   public static void main(String[] args)
+import java.util.Scanner;
+
+/*******************************************************
+ Program Name: Cancer
+ Created by: Pearse Molloy
+ Created on: 22/11/2023
+ Description: Section on cancer for PSD2 group assignment
+ *******************************************************/
+public class Cancer extends ChronicDiseases
+{
+   static Scanner keyboard = new Scanner(System.in);
+   //Define variables
+   private static int lightExercise;
+   private static int intenseExercise;
+   private static int sunExposure;
+   private static double fruitVegConsumption;
+   private static int redMeatPortions;
+   private static int redMeatAmount;
+   private static boolean familyHistory;
+   private boolean radiationExposure;
+
+   //Set Constructors
+   Cancer()
+   {
+   }//default constructor
+
+   public Cancer(String name, int age, int weight, int height, boolean smoker, boolean drinker,
+                     String gender, int lightExerciseDuration, int intenseExerciseDuration, int timeInSun,
+                     double fruitVegIntake, int portionOfRedMeat, int amountOfRedMeat, boolean cancerHistory,
+                     boolean exposureToRadiation)
+   {
+      super.age = age;
+      super.weight = weight;
+      super.height = height;
+      super.smoker = smoker;
+      super.drinker = drinker;
+      super.gender = gender;
+      lightExercise = lightExerciseDuration;
+      intenseExercise = intenseExerciseDuration;
+      sunExposure = timeInSun;
+      fruitVegConsumption = fruitVegIntake;
+      redMeatPortions = portionOfRedMeat;
+      redMeatAmount = amountOfRedMeat;
+      familyHistory = cancerHistory;
+      radiationExposure = exposureToRadiation;
+   }//alt constructor
+
+   //Create get/set methods to retrieve/alter variables
+   protected static void setLightExercise(int lightExerciseDuration)
+   {
+      lightExercise = lightExerciseDuration;
+   }//setLightExercise
+
+   protected static int getLightExercise()
+   {
+      return lightExercise;
+   }//getLightExercise
+
+   protected void setIntenseExercise(int intenseExerciseDuration)
+   {
+      intenseExercise = intenseExerciseDuration;
+   }//setIntenseExercise
+
+   protected static int getIntenseExercise()
+   {
+      return intenseExercise;
+   }//getIntenseExercise
+
+   protected void setSunExposure(int timeInSun)
+   {
+      sunExposure = timeInSun;
+   }//setSunExposure
+
+   protected static int getSunExposure()
+   {
+      return sunExposure;
+   }//getSunExposure
+
+   protected void setFruitVegConsumption(int fruitVegIntake)
+   {
+      fruitVegConsumption = fruitVegIntake;
+   }//setFruitVegConsumption
+
+   protected static double getFruitVegConsumption()
+   {
+      return fruitVegConsumption;
+   }//getFruitVegConsumption
+
+   protected void setRedMeatPortions(int portionsOfRedMeat)
+   {
+      redMeatPortions = portionsOfRedMeat;
+   }//setRedMeatPortions
+
+   protected static int getRedMeatPortions()
+   {
+      return redMeatPortions;
+   }//getRedMeatPortions
+
+   protected void setRedMeatAmount(int amountOfRedMeat)
+   {
+      redMeatAmount = amountOfRedMeat;
+   }//setRedMeatAmount
+
+   protected static int getRedMeatAmount()
+   {
+      return redMeatAmount;
+   }//getRedMeatAmount
+
+   protected static void setFamilyHistory()
+   {
+      familyHistory = true;
+   }//setFamilyHistory
+
+   protected static boolean getFamilyHistory()
+   {
+      return familyHistory;
+   }//getFamilyHistory
+
+   protected void setRadiationExposure(boolean exposureToRadiation)
+   {
+      radiationExposure = exposureToRadiation;
+   }//setRadiationExposure
+
+   protected boolean getRadiationExposure()
+   {
+      return radiationExposure;
+   }//getRadiationExposure
+
+
+   //   public static void main(String[] args)
 //   {
 //      menu();
 //
@@ -125,129 +240,128 @@
 //      System.out.println("buildings â€” homes, schools and workplaces).\n");
 //   }//preventiveAction
 //
-//   public static void amIAtRisk()
-//   {
-//      UserCancer user1 = new UserCancer();
-//      final int INTENSETARGET = 57, LIGHTTARGET = 150;
-//      final int MINSUNEXPOSURE = 10, MAXSUNEXPOSURE = 30;
-//      final int FIVEADAY = 5, MAXREDMEATPORTION = 3, MAXREDMEATAMOUNT = 70;
-//
-//      System.out.println("This section will ask additional questions to what was asked upon entering the program.");
-//      System.out.println("This is to provide additional insight as to your potential cancer risk");
-//      System.out.println();
-//
-//      System.out.println("1. How many minutes of light intensity exercise would you roughly get each week?");
-//      System.out.print("Light exercise: ");
-//      user1.setLightExercise(keyboard.nextInt());
-//      if (user1.getLightExercise() >= LIGHTTARGET)
-//      {
-//         System.out.print("You are exceeding the weekly recommended light intensity exercise of 150 minutes by ");
-//         System.out.println((user1.getLightExercise() - LIGHTTARGET) + " keep it up!");
-//      }//if
-//      else
-//      {
-//         System.out.print("You are short of the recommended weekly light exercise by ");
-//         System.out.println((LIGHTTARGET - user1.getLightExercise()) + " try to be more active going forward.");
-//      }//else
-//      System.out.println();
-//
-//      System.out.println("2. How many minutes of high intensity exercise do you roughly get each week?");
-//      System.out.print("Intense exercise: ");
-//      user1.setIntenseExercise(keyboard.nextInt());
-//      if (user1.getIntenseExercise() >= INTENSETARGET)
-//      {
-//         System.out.print("You are exceeding the weekly recommended high intensity exercise of 75 minutes by ");
-//         System.out.println((user1.getIntenseExercise() - INTENSETARGET) + " keep it up!");
-//      }//if
-//      else
-//      {
-//         System.out.print("You are short of the recommended weekly intense exercise by ");
-//         System.out.println((INTENSETARGET -user1.getIntenseExercise()) + " try to be more active going forward.");
-//      }//else
-//      System.out.println();
-//
-//      System.out.println("How many minutes of sunlight exposure would you say you get daily?");
-//      System.out.print("Daily sun exposure: ");
-//      user1.setSunExposure(keyboard.nextInt());
-//      if ((user1.getSunExposure() <= MAXSUNEXPOSURE) && (user1.getSunExposure() >= MINSUNEXPOSURE))
-//      {
-//         System.out.print("You are getting the recommended sunlight exposure of between 10 and 30 minutes to ");
-//         System.out.println("safely get vitamin D from the sun without risking overexposure.");
-//      }//if
-//      else if (user1.getSunExposure() < MINSUNEXPOSURE)
-//      {
-//         System.out.print("While you are safely avoiding overexposure to the sun it is also important to get ");
-//         System.out.println("a healthy dose of sunlight (10 -30) minutes to get sufficient vitamin D.");
-//      }//else if
-//      else
-//      {
-//         System.out.print("You are exceeding the recommended daily sunlight exposure (10 - 30 minutes). ");
-//         System.out.println("Please try to reduce your exposure to the sun and stay within the recommended ");
-//         System.out.println("timeframe to reduce your cancer risk.");
-//      }//else
-//      System.out.println();
-//
-//      System.out.println("How many portions of fruit and vegetables to consume daily?");
-//      System.out.print("Daily fruit/veg portions: ");
-//      user1.setFruitVegConsumption(keyboard.nextInt());
-//      if (user1.getFruitVegConsumption() >= FIVEADAY)
-//      {
-//         System.out.println("You are getting the recommended daily fruit and veg intake of 5 potions. Good job!");
-//      }//if
-//      else
-//      {
-//         System.out.print("You are getting less than the recommended daily fruit and veg intake of 5 portions. ");
-//         System.out.print("Try to get " + (FIVEADAY - user1.getFruitVegConsumption()) + " more portions.");
-//      }//else
-//      System.out.println();
-//
-//      System.out.println("How many portions of red meat do you typically consume in a week?");
-//      System.out.print("Red meat portions: ");
-//      user1.setRedMeatPortions(keyboard.nextInt());
-//      if (user1.getRedMeatPortions() <= MAXREDMEATPORTION)
-//      {
-//         System.out.println("You are consuming less that the recommended maximum weekly red meat portions of 3.");
-//      }//if
-//      else
-//      {
-//         System.out.print("You are exceeding the recommended weekly red meat portions of 3. ");
-//         System.out.println("Try to reduce your red meat intake going forward.");
-//      }//else
-//      System.out.println();
-//
-//      System.out.println("What size are your red meat portions typically in grams?");
-//      System.out.print("Red meat portion size: ");
-//      user1.setRedMeatAmount(keyboard.nextInt());
-//      if (user1.getRedMeatAmount() > MAXREDMEATAMOUNT)
-//      {
-//         System.out.print("You've exceeded the recommended red meat potion size of 70g by ");
-//         System.out.print((user1.getRedMeatAmount() - MAXREDMEATAMOUNT) + "g. Try to reduce sizes to lower cancer ");
-//         System.out.println("risk.");
-//      }//if
-//      else
-//      {
-//         System.out.println("Your portion size is within the recommended size of 70g.");
-//      }//else
-//      System.out.println();
-//
-//      System.out.println("Is there a history of cancer in your family? Enter yes if true");
-//
-//      System.out.print("History of cancer in family: ");
-//      familyHistoryChoice = keyboard.next().charAt(0);
-//      if ((familyHistoryChoice == 'Y') || (familyHistoryChoice == 'y'))
-//      {
-//         user1.setFamilyHistory(true);
-//      }//if
-//      if (user1.getFamilyHistory())
-//      {
-//         System.out.print("While not definitive, you may have an increased of developing certain cancers compared ");
-//         System.out.println("to those who have no family history of cancer.");
-//      }//if
-//      else
-//      {
-//         System.out.println("With no family history of cancer, your chances of developing it are lessened.");
-//      }//else if
-//
+   public void amIAtRisk()
+   {
+      final int INTENSETARGET = 57, LIGHTTARGET = 150;
+      final int MINSUNEXPOSURE = 10, MAXSUNEXPOSURE = 30;
+      final int FIVEADAY = 5, MAXREDMEATPORTION = 3, MAXREDMEATAMOUNT = 70;
+
+      System.out.println("This section will ask additional questions to what was asked upon entering the program.");
+      System.out.println("This is to provide additional insight as to your potential cancer risk");
+      System.out.println();
+
+      System.out.println("1. How many minutes of light intensity exercise would you roughly get each week?");
+      System.out.print("Light exercise: ");
+      lightExercise = keyboard.nextInt();
+      if (getLightExercise() >= LIGHTTARGET)
+      {
+         System.out.print("You are exceeding the weekly recommended light intensity exercise of 150 minutes by ");
+         System.out.println((getLightExercise() - LIGHTTARGET) + " keep it up!");
+      }//if
+      else
+      {
+         System.out.print("You are short of the recommended weekly light exercise by ");
+         System.out.println((LIGHTTARGET - getLightExercise()) + " try to be more active going forward.");
+      }//else
+      System.out.println();
+
+      System.out.println("2. How many minutes of high intensity exercise do you roughly get each week?");
+      System.out.print("Intense exercise: ");
+      intenseExercise = keyboard.nextInt();
+      if (getIntenseExercise() >= INTENSETARGET)
+      {
+         System.out.print("You are exceeding the weekly recommended high intensity exercise of 75 minutes by ");
+         System.out.println((getIntenseExercise() - INTENSETARGET) + " keep it up!");
+      }//if
+      else
+      {
+         System.out.print("You are short of the recommended weekly intense exercise by ");
+         System.out.println((INTENSETARGET - getIntenseExercise()) + " try to be more active going forward.");
+      }//else
+      System.out.println();
+
+      System.out.println("How many minutes of sunlight exposure would you say you get daily?");
+      System.out.print("Daily sun exposure: ");
+      sunExposure = keyboard.nextInt();
+      if ((getSunExposure() <= MAXSUNEXPOSURE) && (getSunExposure() >= MINSUNEXPOSURE))
+      {
+         System.out.print("You are getting the recommended sunlight exposure of between 10 and 30 minutes to ");
+         System.out.println("safely get vitamin D from the sun without risking overexposure.");
+      }//if
+      else if (getSunExposure() < MINSUNEXPOSURE)
+      {
+         System.out.print("While you are safely avoiding overexposure to the sun it is also important to get ");
+         System.out.println("a healthy dose of sunlight (10 -30) minutes to get sufficient vitamin D.");
+      }//else if
+      else
+      {
+         System.out.print("You are exceeding the recommended daily sunlight exposure (10 - 30 minutes). ");
+         System.out.println("Please try to reduce your exposure to the sun and stay within the recommended ");
+         System.out.println("timeframe to reduce your cancer risk.");
+      }//else
+      System.out.println();
+
+      System.out.println("How many portions of fruit and vegetables to consume daily?");
+      System.out.print("Daily fruit/veg portions: ");
+      fruitVegConsumption = keyboard.nextInt();
+      if (getFruitVegConsumption() >= FIVEADAY)
+      {
+         System.out.println("You are getting the recommended daily fruit and veg intake of 5 potions. Good job!");
+      }//if
+      else
+      {
+         System.out.print("You are getting less than the recommended daily fruit and veg intake of 5 portions. ");
+         System.out.print("Try to get " + (FIVEADAY - getFruitVegConsumption()) + " more portions.");
+      }//else
+      System.out.println();
+
+      System.out.println("How many portions of red meat do you typically consume in a week?");
+      System.out.print("Red meat portions: ");
+      redMeatPortions = keyboard.nextInt();
+      if (getRedMeatPortions() <= MAXREDMEATPORTION)
+      {
+         System.out.println("You are consuming less that the recommended maximum weekly red meat portions of 3.");
+      }//if
+      else
+      {
+         System.out.print("You are exceeding the recommended weekly red meat portions of 3. ");
+         System.out.println("Try to reduce your red meat intake going forward.");
+      }//else
+      System.out.println();
+
+      System.out.println("What size are your red meat portions typically in grams?");
+      System.out.print("Red meat portion size: ");
+      redMeatPortions = keyboard.nextInt();
+      if (redMeatPortions > MAXREDMEATAMOUNT)
+      {
+         System.out.print("You've exceeded the recommended red meat potion size of 70g by ");
+         System.out.print((getRedMeatAmount() - MAXREDMEATAMOUNT) + "g. Try to reduce sizes to lower cancer ");
+         System.out.println("risk.");
+      }//if
+      else
+      {
+         System.out.println("Your portion size is within the recommended size of 70g.");
+      }//else
+      System.out.println();
+
+      System.out.println("Is there a history of cancer in your family? Enter yes if true");
+
+      System.out.print("History of cancer in family: ");
+      char familyHistoryChoice = keyboard.next().charAt(0);
+      if ((familyHistoryChoice == 'Y') || (familyHistoryChoice == 'y'))
+      {
+         setFamilyHistory();
+      }//if
+      if (getFamilyHistory())
+      {
+         System.out.print("While not definitive, you may have an increased of developing certain cancers compared ");
+         System.out.println("to those who have no family history of cancer.");
+      }//if
+      else
+      {
+         System.out.println("With no family history of cancer, your chances of developing it are lessened.");
+      }//else if
+
 //      System.out.println("Do you work in an environment that exposes you to any form of radiation? Enter yes if true");
 //      System.out.print("Radiation exposure: ");
 //      radExposureChoice = keyboard.next().charAt(0);
@@ -264,5 +378,5 @@
 //      {
 //         System.out.println("By having no occupational exposure to radiation your cancer risk is reduced.");
 //      }//else if
-//   }//amIAtRisk
-//}//class
+   }//amIAtRisk
+}//class
