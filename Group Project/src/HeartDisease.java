@@ -124,10 +124,13 @@ public class HeartDisease extends ChronicDiseases{
       System.out.println("Enter Heart disease details: ");
 
       System.out.print("Cholesterol Level: ");
-      hdlCholesterol = String.valueOf(InputHelper.validateInput(scanner));
+      cholesterolLevel = InputHelper.validateInput(scanner);
 
       System.out.print("Systolic Blood Pressure: ");
-      systolicBloodPressure = (InputHelper.validateInput(scanner));
+      systolicBloodPressure = InputHelper.validateInput(scanner);
+
+      System.out.print("Diastolic Blood Pressure: ");
+      diastolicBloodPressure = InputHelper.validateInput(scanner);
 
    }//heartDiseaseQuestions
 //
@@ -246,10 +249,7 @@ public class HeartDisease extends ChronicDiseases{
 
    // Method to display person's details, risk score, and risk category
    public void displayDetails() {
-      System.out.println("Age: " + age);
-      System.out.println("Gender: " + gender);
       System.out.println("Cholesterol Level: " + cholesterolLevel);
-      System.out.println("Smoker: " + smoker);
       System.out.println("Systolic Blood Pressure: " + systolicBloodPressure);
       System.out.println("Diastolic Blood Pressure: " + diastolicBloodPressure);
       System.out.println("Heart Risk Score: " + heartRiskScore);

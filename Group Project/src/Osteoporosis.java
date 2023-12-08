@@ -8,54 +8,17 @@ import java.util.Scanner;
 public class Osteoporosis
 {
    Scanner scan = new Scanner(System.in);
-   String FullName;
-   int age;
-   String gender;
-   int weight;
-   boolean alcoholExcessiveDrinking = true;
+   boolean alcoholExcessiveDrinking;
 
-   boolean smoker = true;
-
-   public String getFullName()
+   public Osteoporosis()
    {
-      return FullName;
-   }
+   }//constructor
 
-   public void setFullName(String fullName)
+   public Osteoporosis(boolean alcoholExcessiveDrinking)
    {
-      FullName = fullName;
+      super();
+      this.alcoholExcessiveDrinking = alcoholExcessiveDrinking;
    }
-
-   public int getAge()
-   {
-      return age;
-   }
-
-   public void setAge(int age)
-   {
-      this.age = age;
-   }
-
-   public String getGender()
-   {
-      return gender;
-   }
-
-   public void setGender(String gender)
-   {
-      this.gender = gender;
-   }
-
-   public int getWeight()
-   {
-      return weight;
-   }
-
-   public void setWeight(int weight)
-   {
-      this.weight = weight;
-   }
-
    public boolean isAlcoholExcessiveDrinking()
    {
       return alcoholExcessiveDrinking;
@@ -66,37 +29,17 @@ public class Osteoporosis
       this.alcoholExcessiveDrinking = alcoholExcessiveDrinking;
    }
 
-   public boolean isSmoker()
-   {
-      return smoker;
-   }
-
-   public void setSmoker(boolean smoker)
-   {
-      this.smoker = smoker;
-   }
-
-   public Osteoporosis()
-   {
-   }//constructor
-
-   public Osteoporosis(String fullName, int age, String gender, int weight, boolean alcoholExcessiveDrinking, boolean smoker)
-   {
-      FullName = fullName;
-      this.age = age;
-      this.gender = gender;
-      this.weight = weight;
-      this.alcoholExcessiveDrinking = alcoholExcessiveDrinking;
-      this.smoker = smoker;
-   }
-
-   public static void information()
+   public void information()
    {
 
-      System.out.println("-----Welcome to the Brittle Bone Disease (Osteoporosis) Information and Prevention Program!-----");
-      System.out.println("--osteoporosis (also known as Brittle bone disease) , is a condition characterized by weakened bones.--");
+      System.out.println("-----Welcome to the Osteoporosis Disease Information and Prevention Program!-----");
+      System.out.println();
+      System.out.println("--Osteoporosis (also known as Brittle bone disease) , is a condition characterized by weakened bones.--");
+      System.out.println();
       System.out.println("--Causes include aging, hormonal changes, lack of exercise, and inadequate intake of calcium and vitamin D, and poor diet.--");
+      System.out.println();
       System.out.println("--Prevention involves a healthy lifestyle with proper nutrition, exercise (where applicable), and sufficient exposure to sunlight (with appropriate sunscreen protection.)--");
+      System.out.println();
       System.out.println("--Cures may include medications and lifestyle changes, to include no smoking!! and safe alcohol intake .--");
    }
    // call invoke the information method
@@ -130,7 +73,6 @@ public class Osteoporosis
             if (vitdIntake >= vitaminDRecommendations[0] && vitdIntake <= vitaminDRecommendations[1])
             {
                System.out.println("Great news as you have sufficient amount of Vit D , continue as normal,as your low-risk at the present time");
-
             }
 
          } else
@@ -138,16 +80,9 @@ public class Osteoporosis
             System.out.println("You need to change your lifestyle, as you are at risk of developing osteoporosis.");
          }
 
-
       } catch (InputMismatchException e)
       {
          System.out.println("Input mismatch. Please enter valid data types.");
-
       }
-      // Close the scanner in the finally block to ensure it is closed even if an exception occurs
-      scan.close();
-      System.out.println("Input mismatch. Please enter valid data types.");
-
    }
-
 }

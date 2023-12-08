@@ -5,7 +5,7 @@ import java.util.Objects;
 import java.util.Scanner;
 
 /****
- ***** Created by Jayne  on 26 11 2023
+ ***** Created by Jayne on 26 11 2023
  *****
  *****/
 public class User
@@ -21,6 +21,8 @@ public class User
    private HeartDisease heartDisease = new HeartDisease();
    private Obesity obesity = new Obesity();
    private Cancer cancer = new Cancer();
+   private Osteoporosis osteoporosis = new Osteoporosis();
+
    public User () throws FileNotFoundException
    {
 
@@ -68,7 +70,15 @@ public class User
    {
       this.cancer = cancer;
    }
+   public Osteoporosis getOsteoporosis()
+   {
+      return osteoporosis;
+   }
 
+   public void setOsteoporosis(Osteoporosis osteoporosis)
+   {
+      this.osteoporosis = osteoporosis;
+   }
    public void setName(String name)
    {
       this.name = name;
@@ -181,48 +191,23 @@ public class User
       double bmi = 0;
       bmi = weight / ((height / 100) * (height / 100));
       return bmi;
-//      if (bmi < 18.5)
-//      {
-//         return "Your result suggests you are underweight";
-//
-//      } else if (bmi < 25)
-//      {
-//         return "Your result suggests you are a healthy weight";
-//
-//      } else if (bmi < 30)
-//      {
-//         return "Your result suggests you are overweight";
-//
-//      } else
-//      {
-//         return "Your result suggests you are obese";
-//      }
    }//calculateBMI
 
    public void riskAssessment() {
       if (calculateBMI() > 30) {
          healthRisks.add("Obesity");
-         Obesity obesity = new Obesity();
       }
-      if (calculateBMI() > 30 && smoker && drinker) {
+      if ((smoker && gender =="female" || gender == "male") || (calculateBMI() > 30 && smoker && drinker)) {
          healthRisks.add("Cancer");
-         Cancer cancer = new Cancer();
-      }
-      if (smoker && gender =="female" || gender == "male") {
-         healthRisks.add("Cancer");
-         Cancer cancer = new Cancer();
       }
       if (calculateBMI() > 30 && smoker && drinker && gender == "female") {
          healthRisks.add("Osteoporosis");
-         Osteoporosis osteoporosis = new Osteoporosis();
       }
-      if (calculateBMI() < 18.5 && smoker && drinker && gender == "female") {
+      if (calculateBMI() < 18.5 && smoker && drinker && gender == "female" || (age>= 50)|| (calculateBMI() < 18.5)) {
          healthRisks.add("Osteoporosis");
-         Osteoporosis osteoporosis = new Osteoporosis();
       }
-      if (calculateBMI() > 30 && smoker && drinker && age >= 45) {
+      if (calculateBMI() > 30 && smoker && drinker && age >= 45 || (smoker) ||(calculateBMI() > 30 && smoker)) {
          healthRisks.add("Heart Disease");
-         HeartDisease heartDisease = new HeartDisease();
       }
        else if (calculateBMI() < 25 && age < 30) {
          System.out.println(" You are currently a low risk of a chronic disease. Congratulations!");

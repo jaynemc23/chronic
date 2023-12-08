@@ -29,12 +29,6 @@ public class Cancer extends ChronicDiseases
                      double fruitVegIntake, int portionOfRedMeat, int amountOfRedMeat, boolean cancerHistory,
                      boolean exposureToRadiation)
    {
-      super.age = age;
-      super.weight = weight;
-      super.height = height;
-      super.smoker = smoker;
-      super.drinker = drinker;
-      super.gender = gender;
       lightExercise = lightExerciseDuration;
       intenseExercise = intenseExerciseDuration;
       sunExposure = timeInSun;
@@ -245,98 +239,119 @@ public class Cancer extends ChronicDiseases
       final int INTENSETARGET = 57, LIGHTTARGET = 150;
       final int MINSUNEXPOSURE = 10, MAXSUNEXPOSURE = 30;
       final int FIVEADAY = 5, MAXREDMEATPORTION = 3, MAXREDMEATAMOUNT = 70;
-
+      System.out.println();
       System.out.println("This section will ask additional questions to what was asked upon entering the program.");
       System.out.println("This is to provide additional insight as to your potential cancer risk");
       System.out.println();
 
       System.out.println("1. How many minutes of light intensity exercise would you roughly get each week?");
+      System.out.println();
       System.out.print("Light exercise: ");
       lightExercise = keyboard.nextInt();
       if (getLightExercise() >= LIGHTTARGET)
       {
          System.out.print("You are exceeding the weekly recommended light intensity exercise of 150 minutes by ");
+         System.out.println();
          System.out.println((getLightExercise() - LIGHTTARGET) + " keep it up!");
+         System.out.println();
       }//if
       else
       {
-         System.out.print("You are short of the recommended weekly light exercise by ");
+         System.out.print("*** You are short of the recommended weekly light exercise by ");
+         System.out.println();
          System.out.println((LIGHTTARGET - getLightExercise()) + " try to be more active going forward.");
       }//else
       System.out.println();
 
       System.out.println("2. How many minutes of high intensity exercise do you roughly get each week?");
+      System.out.println();
       System.out.print("Intense exercise: ");
+      System.out.println();
       intenseExercise = keyboard.nextInt();
       if (getIntenseExercise() >= INTENSETARGET)
       {
          System.out.print("You are exceeding the weekly recommended high intensity exercise of 75 minutes by ");
+         System.out.println();
          System.out.println((getIntenseExercise() - INTENSETARGET) + " keep it up!");
       }//if
       else
       {
-         System.out.print("You are short of the recommended weekly intense exercise by ");
+         System.out.print("*** You are short of the recommended weekly intense exercise by ");
+         System.out.println();
          System.out.println((INTENSETARGET - getIntenseExercise()) + " try to be more active going forward.");
       }//else
       System.out.println();
 
       System.out.println("How many minutes of sunlight exposure would you say you get daily?");
+      System.out.println();
       System.out.print("Daily sun exposure: ");
       sunExposure = keyboard.nextInt();
       if ((getSunExposure() <= MAXSUNEXPOSURE) && (getSunExposure() >= MINSUNEXPOSURE))
       {
+         System.out.println();
          System.out.print("You are getting the recommended sunlight exposure of between 10 and 30 minutes to ");
          System.out.println("safely get vitamin D from the sun without risking overexposure.");
+         System.out.println();
       }//if
       else if (getSunExposure() < MINSUNEXPOSURE)
       {
          System.out.print("While you are safely avoiding overexposure to the sun it is also important to get ");
          System.out.println("a healthy dose of sunlight (10 -30) minutes to get sufficient vitamin D.");
+         System.out.println();
       }//else if
       else
       {
          System.out.print("You are exceeding the recommended daily sunlight exposure (10 - 30 minutes). ");
          System.out.println("Please try to reduce your exposure to the sun and stay within the recommended ");
          System.out.println("timeframe to reduce your cancer risk.");
+         System.out.println();
       }//else
       System.out.println();
 
       System.out.println("How many portions of fruit and vegetables to consume daily?");
       System.out.print("Daily fruit/veg portions: ");
+      System.out.println();
       fruitVegConsumption = keyboard.nextInt();
       if (getFruitVegConsumption() >= FIVEADAY)
       {
          System.out.println("You are getting the recommended daily fruit and veg intake of 5 potions. Good job!");
+         System.out.println();
       }//if
       else
       {
          System.out.print("You are getting less than the recommended daily fruit and veg intake of 5 portions. ");
-         System.out.print("Try to get " + (FIVEADAY - getFruitVegConsumption()) + " more portions.");
+         System.out.print("*** Try to get " + (FIVEADAY - getFruitVegConsumption()) + " more portions.");
+         System.out.println();
       }//else
       System.out.println();
 
       System.out.println("How many portions of red meat do you typically consume in a week?");
       System.out.print("Red meat portions: ");
+      System.out.println();
       redMeatPortions = keyboard.nextInt();
       if (getRedMeatPortions() <= MAXREDMEATPORTION)
       {
          System.out.println("You are consuming less that the recommended maximum weekly red meat portions of 3.");
+         System.out.println();
       }//if
       else
       {
          System.out.print("You are exceeding the recommended weekly red meat portions of 3. ");
          System.out.println("Try to reduce your red meat intake going forward.");
+         System.out.println();
       }//else
       System.out.println();
 
       System.out.println("What size are your red meat portions typically in grams?");
       System.out.print("Red meat portion size: ");
+      System.out.println();
       redMeatPortions = keyboard.nextInt();
       if (redMeatPortions > MAXREDMEATAMOUNT)
       {
          System.out.print("You've exceeded the recommended red meat potion size of 70g by ");
          System.out.print((getRedMeatAmount() - MAXREDMEATAMOUNT) + "g. Try to reduce sizes to lower cancer ");
          System.out.println("risk.");
+         System.out.println();
       }//if
       else
       {
